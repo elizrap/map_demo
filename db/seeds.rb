@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+
+City.create(name: "Los Angeles",state: "CA", population: 3792621 )
+City.create(name: "Phoenix",state: "AZ", population: 1445632)
+City.create(name: "San Antonio",state: "TX", population: 1327407)
+City.create(name: "San Diego",state: "CA", population: 1307402 )
+City.create(name: "San Jose",state: "CA", population: 945942)
