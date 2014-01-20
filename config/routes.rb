@@ -1,4 +1,6 @@
 MapDemo::Application.routes.draw do
+  get "cities/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
