@@ -1,0 +1,1 @@
+Demo map app following http://andyglassblog.wordpress.com/2012/07/06/google-maps-for-rails-with-gmaps4-rails-tutorial-on-how-to-post-and-filter-locations/
