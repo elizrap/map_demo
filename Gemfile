@@ -33,6 +33,9 @@ end
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# To use Gmaps4rails
+gem 'gmaps4rails', '1.5.6'
+
 # To use debugger
 # gem 'debugger'
 
