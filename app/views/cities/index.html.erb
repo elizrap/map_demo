@@ -12,7 +12,8 @@
 </script>
 -->
 
-
+<div id='population-range' style="width: 500px"></div>
+<input type="text" id="filtered-pop" style="width: 200px"/>
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -25,22 +26,38 @@
 
       console.log(Gmaps.map.markers)
 
-
     }
   });
+
+  var PopulationFilter = {
+    min: 800000,
+    max: 10000000,
+  };
+
+  $("#population-range").slider({
+    range: true,
+    min: PopulationFilter.min,
+    max: PopulationFilter.max,
+    values: [ PopulationFilter.min, PopulationFilter.max ],
+    slide: function(event, ui) {
+      $( "#filtered-pop" ).val( (ui.values[ 0 ])+ " - " + (ui.values[ 1 ]))
+    }
+  });
+
+$( "#filtered-pop" ).val( (PopulationFilter.min)+ " - " + (PopulationFilter.max))
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
 
 
-<!-- script to hide all the markers
-<script type="text/javascript">
-  $(document).ready(function() {
-    Gmaps.map.callback = function() {
-      _.each(Gmaps.map.markers, function(marker) {
-        Gmaps.map.hideMarker(marker)
-      })
-    }
-  });
-</script>
--->
