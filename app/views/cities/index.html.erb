@@ -1,4 +1,46 @@
 <h1>Cities#index</h1>
 <p>Find me in app/views/cities/index.html.erb</p>
-
 <%= gmaps4rails(@json) %>
+
+<!-- script to log all the markers to the console
+<script type="text/javascript">
+  $(document).ready(function() {
+    Gmaps.map.callback = function() {
+      console.log(Gmaps.map.markers)
+    }
+  });
+</script>
+-->
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    Gmaps.map.callback = function() {
+
+      _.each(Gmaps.map.markers, function(marker) {
+        Gmaps.map.hideMarker(marker)
+      })
+
+      console.log(Gmaps.map.markers)
+
+
+    }
+  });
+</script>
+
+
+
+
+<!-- script to hide all the markers
+<script type="text/javascript">
+  $(document).ready(function() {
+    Gmaps.map.callback = function() {
+      _.each(Gmaps.map.markers, function(marker) {
+        Gmaps.map.hideMarker(marker)
+      })
+    }
+  });
+</script>
+-->
