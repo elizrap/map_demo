@@ -41,6 +41,8 @@
     values: [ PopulationFilter.min, PopulationFilter.max ],
     slide: function(event, ui) {
       $( "#filtered-pop" ).val( (ui.values[ 0 ])+ " - " + (ui.values[ 1 ]))
+      PopulationFilter.min = ui.values[ 0 ]
+      PopulationFilter.max = ui.values[ 1 ]
     }
   });
 
