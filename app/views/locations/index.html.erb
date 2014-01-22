@@ -46,4 +46,28 @@
 <script type='text/javascript'>
   //var map = L.mapbox.map('map', 'examples.map-y7l23tes').setView([37.9, -77], 5);
   var map = L.mapbox.map('mapdiv', 'elizrap.h2ic8pe8');
+
+
+
+
+L.mapbox.markerLayer({
+    // this feature is in the GeoJSON format: see geojson.org
+    // for the full specification
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        // coordinates here are in longitude, latitude order because
+        // x, y is the standard for GeoJSON and many formats
+        coordinates: [-71, 42]
+    },
+    properties: {
+        title: 'A Single Marker',
+        description: 'Just one of me',
+        // one can customize markers by adding simplestyle properties
+        // http://mapbox.com/developers/simplestyle/
+        'marker-size': 'large',
+        'marker-color': '#f0a'
+    }
+}).addTo(map);
+
 </script>

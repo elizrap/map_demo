@@ -9,9 +9,27 @@ class LocationsController < ApplicationController
     end
 
 
+    @geojson = Array.new
+
+    @locations.each do |location|
+        @geojson << {
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [location.longitude, location.latitude]
+            },
+            properties: {
+              address: location.address,
+              :'marker-color' => '#00607d',
+              :'marker-symbol' => 'circle',
+              :'marker-size' => 'medium'
+            }
+        }
+    end
+
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @locations }
+      format.json { render json: @geojson }
     end
   end
 
