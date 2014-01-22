@@ -1,4 +1,7 @@
 MapDemo::Application.routes.draw do
+  resources :locations
+
+
   get "cities/index"
 
   # The priority is based upon order of creation:
