@@ -19,6 +19,8 @@ class LocationsController < ApplicationController
               coordinates: [location.longitude, location.latitude]
             },
             properties: {
+              title: location.address,
+              description: 'cool beans',
               address: location.address,
               :'marker-color' => '#00607d',
               :'marker-symbol' => 'circle',

@@ -33,6 +33,9 @@
 
 <%= link_to 'New Location', new_location_path %>
 
+
+
+<!--MAP STUFF-->
 <style>
     #mapdiv {
         width: 100%;
@@ -40,34 +43,72 @@
     }
 </style>
 
-
 <div id='mapdiv'></div>
 
 <script type='text/javascript'>
-  //var map = L.mapbox.map('map', 'examples.map-y7l23tes').setView([37.9, -77], 5);
+
+  //Define the map. Can optionally set the view with e.g. .setView([37.9, -77], 5)
   var map = L.mapbox.map('mapdiv', 'elizrap.h2ic8pe8');
 
-
-
-
-L.mapbox.markerLayer({
+//Add a single hard-coded marker to the map
+  L.mapbox.markerLayer({
     // this feature is in the GeoJSON format: see geojson.org
-    // for the full specification
     type: 'Feature',
     geometry: {
         type: 'Point',
-        // coordinates here are in longitude, latitude order because
+        // coordinates are in longitude, latitude order because
         // x, y is the standard for GeoJSON and many formats
-        coordinates: [-71, 42]
+        coordinates: [-71.209221, 42.33704]
     },
     properties: {
-        title: 'A Single Marker',
-        description: 'Just one of me',
-        // one can customize markers by adding simplestyle properties
+        title: 'Newton',
+        description: 'Home',
+        // customize markers by adding simplestyle properties
         // http://mapbox.com/developers/simplestyle/
         'marker-size': 'large',
         'marker-color': '#f0a'
     }
-}).addTo(map);
+  }).addTo(map);
+
+  console.log(map.markerLayer)
+
+
+var markersFromDB;
+
+markersFromDB = $.ajax({
+  dataType: 'JSON',
+  url: '',
+  success: function(data) {
+
+    /*var geojson = {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-71.059,42.3584]
+      },
+      "properties": {
+        "title": "Boston",
+        "description": "Best city!",
+        "marker-color": "#fc4353",
+        "marker-size": "large",
+        "marker-symbol": "monument"
+      }
+    }*/
+
+    var geojson = data;
+
+    L.mapbox.markerLayer(geojson).addTo(map);
+    //geojsonP = $.parseJSON(geojson);
+    //map.markerLayer.setGeoJSON(geojson);
+    //mytext=$.parseJSON('{ "name": "John" }');
+    console.log('hello ' + ' ' + geojson.type + ' ' + geojson.geometry + ' ' +data);
+    console.log(map.markerLayer);
+
+    //map.markerLayer.setGeoJSON(data);
+
+  }
+});
+
+
 
 </script>
